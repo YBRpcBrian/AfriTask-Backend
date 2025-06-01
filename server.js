@@ -34,10 +34,12 @@ app.use(cors(corsOptions)); // Apply the CORS options
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const walletRoutes = require("./routes/walletRoutes"); // Import wallet routes
+const momoRoutes = require("./routes/momoRoutes"); // <-- Import the route
 
 // Use the auth routes for authentication-related endpoints
 app.use("/api/auth", authRoutes); // Prefix all auth routes with /api/auth
 app.use("/api/wallet", walletRoutes);
+app.use("/api/momo", momoRoutes); // <-- Use the route
 
 // Start the server
 const PORT = process.env.PORT || 5000;
